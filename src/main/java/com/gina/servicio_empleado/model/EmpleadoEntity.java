@@ -15,6 +15,7 @@ public class EmpleadoEntity {
     private String nombres;
     private String apellidos;
     private String tipoDocumento;
+    @Column(name = "numero_documento", unique = true, nullable = false)
     private String numeroDocumento;
     private LocalDate fechaNacimiento;
     private LocalDate fechaVinculacion;
