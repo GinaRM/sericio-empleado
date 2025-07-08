@@ -53,6 +53,10 @@ public class EmpleadoProcessorService {
         if (edad.getYears() < 18) {
             throw new IllegalArgumentException("El empleado debe ser mayor de edad");
         }
+        if (edad.getYears() > 100) {
+            throw new IllegalArgumentException("La edad del empleado no puede superar los 100 años");
+        }
+
     }
 
     private void validarDuplicado(EmpleadoDto dto) {
