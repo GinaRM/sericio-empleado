@@ -49,5 +49,35 @@ public class EmpleadoDto {
         return salario;
     }
 
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
 
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setFechaVinculacion(LocalDate fechaVinculacion) {
+        this.fechaVinculacion = fechaVinculacion;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
 }

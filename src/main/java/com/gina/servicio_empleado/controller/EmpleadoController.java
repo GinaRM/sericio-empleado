@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -26,4 +27,10 @@ public class EmpleadoController {
         EmpleadoResponseDto response = empleadoProcessorService.procesarEmpleado(empleadoDto);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping
+    public ResponseEntity<List<EmpleadoResponseDto>> getAll() {
+        return ResponseEntity.ok(empleadoProcessorService.obtenerTodosLosEmpleados());
+    }
+
 }

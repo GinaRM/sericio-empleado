@@ -18,7 +18,18 @@ public class EmpleadoMapper {
         entity.setCargo(dto.getCargo());
         entity.setSalario(dto.getSalario());
         return entity;
-
-
     }
+    public EmpleadoDto toDto(EmpleadoEntity entity) {
+        EmpleadoDto dto = new EmpleadoDto();
+        dto.setNombres(entity.getNombres());
+        dto.setApellidos(entity.getApellidos());
+        dto.setTipoDocumento(entity.getTipoDocumento());
+        dto.setNumeroDocumento(entity.getNumeroDocumento());
+        dto.setFechaNacimiento(entity.getFechaNacimiento());
+        dto.setFechaVinculacion(entity.getFechaVinculacion());
+        dto.setCargo(entity.getCargo());
+        dto.setSalario(entity.getSalario());
+        return dto;
+    }
+
 }

@@ -22,6 +22,42 @@ public class EmpleadoEntity {
     private String cargo;
     private Double salario;
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public String getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public LocalDate getFechaVinculacion() {
+        return fechaVinculacion;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public Double getSalario() {
+        return salario;
+    }
+
     public void setNombres(String nombres) {
         this.nombres = nombres;
     }
