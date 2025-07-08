@@ -4,6 +4,9 @@ import com.gina.servicio_empleado.dto.EmpleadoDto;
 import com.gina.servicio_empleado.dto.EmpleadoResponseDto;
 import com.gina.servicio_empleado.service.EmpleadoProcessorService;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +31,10 @@ public class EmpleadoController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping
-    public ResponseEntity<List<EmpleadoResponseDto>> getAll() {
-        return ResponseEntity.ok(empleadoProcessorService.obtenerTodosLosEmpleados());
+    @GetMapping("/paginado")
+    public ResponseEntity<Page<EmpleadoResponseDto>> getAllPaginado(
+            @PageableDefault(size = 10, page = 0) Pageable pageable) {
+        return ResponseEntity.ok(empleadoProcessorService.obtenerEmpleadosPaginados(pageable));
     }
 
 }

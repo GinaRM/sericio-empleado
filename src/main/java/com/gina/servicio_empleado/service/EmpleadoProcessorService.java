@@ -5,6 +5,9 @@ import com.gina.servicio_empleado.dto.EmpleadoResponseDto;
 import com.gina.servicio_empleado.exception.EmpleadoDuplicadoException;
 import com.gina.servicio_empleado.repository.EmpleadoRepository;
 import com.gina.servicio_empleado.util.EmpleadoMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -88,21 +91,20 @@ public class EmpleadoProcessorService {
                 period.getYears(), period.getMonths(), period.getDays());
     }
 
-    public List<EmpleadoResponseDto> obtenerTodosLosEmpleados() {
-        return empleadoRepository.findAll()
-                .stream()
+    public Page<EmpleadoResponseDto> obtenerEmpleadosPaginados(Pageable pageable) {
+        var page = empleadoRepository.findAll(pageable);
+
+        List<EmpleadoResponseDto> content = page.getContent().stream()
                 .map(entity -> {
                     EmpleadoDto dto = empleadoMapper.toDto(entity);
-
                     Period edad = calcularEdad(dto.getFechaNacimiento());
                     Period vinculo = calcularTiempoVinculacion(dto.getFechaVinculacion());
-
                     return buildResponse(dto, edad, vinculo);
                 })
                 .toList();
+
+        return new PageImpl<>(content, pageable, page.getTotalElements());
+
+
     }
-
-
-
-
 }
