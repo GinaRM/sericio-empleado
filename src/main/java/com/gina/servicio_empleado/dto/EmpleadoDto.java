@@ -7,30 +7,14 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class EmpleadoDto {
-    @NotBlank
-    private String nombres;
-
-    @NotBlank
-    private String apellidos;
-
-    @NotBlank
-    private String tipoDocumento;
-
-    @NotBlank
-    private String numeroDocumento;
-
-    @NotNull
-    private LocalDate fechaNacimiento;
-
-    @NotNull
-    private LocalDate fechaVinculacion;
-
-    @NotBlank
-    private String cargo;
-
-    @NotNull
-    @DecimalMin("0.0")
-    private Double salario;
+    @NotBlank private String nombres;
+    @NotBlank private String apellidos;
+    @NotBlank private String tipoDocumento;
+    @NotBlank private String numeroDocumento;
+    @NotNull private LocalDate fechaNacimiento;
+    @NotNull private LocalDate fechaVinculacion;
+    @NotBlank private String cargo;
+    @NotNull @DecimalMin("0.0") private Double salario;
 
     public String getNombres() {
         return nombres;
